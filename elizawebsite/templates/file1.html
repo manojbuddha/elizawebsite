@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eliza chatbot</title>
+  </head>
+  <div align="center">
+    <h1>Eliza Chatbot</h1>
+    <a style="margin-right: 20px;" href="https://www.linkedin.com/in/manoj-buddha" target="_blank">LinkedIn</a> <a href="https://github.com/manojbuddha" target="_blank">GitHub</a>
+    <hr style="width:1000px;overflow:auto">
+    <h4>Instructions</h4>
+    <p1>Type "quit" to start a new session with Eliza</p1><br>
+    <p1>Enter text in input field below and press "Enter" or click "Enter" button to get response from Eliza</p1>
+    <hr style="width:1000px;overflow:auto">
+  </div>
+    <div class='container', align="center">
+      <div>
+        <div style="height:350px;width:700px;overflow:auto;background-color:black;color:white;scrollbar-base-color:gold;font-family:arial;padding:15px;">
+          {% for conv in conversations %}
+            <p align="left"><strong>Eliza</strong>: {{ conv.0 }}</p>
+            <p align="left"> <strong> {{user_name}}</strong>: {{ conv.1 }}</p>
+          {% endfor %}
+          <p align="left"><strong>Eliza</strong>: {{ latest_reply }}</p>
+        </div>
+                    <hr style="width:1000px;overflow:auto">
+          <form method="POST">
+            {{form1.as_p}}
+            {% csrf_token %}
+            <input style="height:50px;width:100px;overflow:auto; ;font-size: 20px" type="submit" value="Enter">
+
+          </form>
+        </div>
+	</div>
+  <br>
+<hr>
+  <div class='container', align="center">
+    <div style="height:350px;width:1000px;overflow:auto;font-family:arial;padding:15px;">
+  <h1>About</h1>
+  <p1 align="right"> Eliza is a mock Rogerian psychotherapist, first program was described by Joseph Weizenbaum in 1966.</p1> <br>
+  <p1 align="left">Eliza works by detecting predefined keywords from user input and then reponds by applying transformation rules to the user input based on rules.</p1><br>
+  <p1 align="left">.</p1><br>
+
+    </div>
+  </div>
+</html>
